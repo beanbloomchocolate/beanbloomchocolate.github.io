@@ -1,0 +1,1490 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#593d25" />
+  <title>Bean Bloom Chocolate | Artisan Chocolate in Miamisburg</title>
+  <meta name="description" content="Bean Bloom Chocolate. Rich, elegant artisan chocolate bars and desserts. Visit us at 21 Alexandersville Rd, Miamisburg, or order online." />
+
+  <!-- Fonts (elegant + readable) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --main:#593d25;
+      --second:#715743;
+      --white:#ffffff;
+
+      --bg:#fbf7f2; /* almost white */
+      --ink:#1f1711;
+      --muted: rgba(31,23,17,.70);
+
+      --card: rgba(255,255,255,.72);
+      --stroke: rgba(89,61,37,.14);
+
+      --shadow: 0 18px 55px rgba(31,23,17,.12);
+      --shadow-soft: 0 14px 36px rgba(31,23,17,.10);
+
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+
+      --serif: "Cormorant Garamond", serif;
+      --sans: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+      --container: 1120px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 900px at 10% 0%, rgba(89,61,37,.10), transparent 55%),
+        radial-gradient(900px 700px at 95% 12%, rgba(113,87,67,.12), transparent 55%),
+        radial-gradient(900px 700px at 35% 100%, rgba(89,61,37,.08), transparent 60%),
+        var(--bg);
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+    button{ font-family:inherit; }
+    ::selection{ background: rgba(89,61,37,.16); }
+
+    /* Subtle grain overlay */
+    .grain{
+      pointer-events:none;
+      position:fixed; inset:0;
+      opacity:.06;
+      mix-blend-mode:multiply;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      background-size:240px 240px;
+      z-index:1;
+    }
+
+    /* Layout */
+    .wrap{ width:min(var(--container), 92vw); margin:0 auto; }
+    .section{ padding: 70px 0; position:relative; z-index:2; }
+    .section.compact{ padding: 52px 0; }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color: var(--muted);
+      margin:0 0 12px 0;
+    }
+    .kicker::before{
+      content:"";
+      width:18px; height:1px;
+      background: rgba(89,61,37,.40);
+    }
+
+    h1,h2,h3{
+      font-family: var(--serif);
+      letter-spacing:.01em;
+      margin:0;
+    }
+    h1{ font-size: clamp(34px, 5vw, 64px); line-height:1.02; }
+    h2{ font-size: clamp(26px, 3.8vw, 44px); line-height:1.06; }
+    h3{ font-size: 22px; line-height:1.1; }
+
+    p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* Top nav */
+    .nav{
+      position:sticky; top:0;
+      z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(251,247,242,.62);
+      border-bottom:1px solid rgba(89,61,37,.10);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 12px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 170px;
+    }
+    .brand img{
+      width:44px; height:44px;
+      border-radius: 14px;
+      object-fit:cover;
+      box-shadow: 0 10px 22px rgba(31,23,17,.10);
+      border:1px solid rgba(89,61,37,.12);
+      transform: translateZ(0);
+    }
+    .brand .name{
+      display:flex; flex-direction:column;
+      line-height:1.05;
+    }
+    .brand .name strong{
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--main);
+      font-weight: 700;
+    }
+    .brand .name span{
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(113,87,67,.85);
+      margin-top: 3px;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-links a{
+      font-size: 13px;
+      color: rgba(31,23,17,.82);
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: transform .25s ease, background .25s ease, color .25s ease;
+      position:relative;
+    }
+    .nav-links a:hover{
+      background: rgba(89,61,37,.10);
+      color: var(--main);
+      transform: translateY(-1px);
+    }
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(89,61,37,.18);
+      background: rgba(255,255,255,.62);
+      box-shadow: 0 16px 34px rgba(31,23,17,.08);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      white-space:nowrap;
+    }
+    .cta:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 22px 55px rgba(31,23,17,.12);
+      border-color: rgba(89,61,37,.28);
+    }
+    .cta .dot{
+      width:10px; height:10px;
+      border-radius:999px;
+      background: var(--main);
+      box-shadow: 0 0 0 4px rgba(89,61,37,.10);
+    }
+    .cta span{
+      font-size:13px;
+      color: var(--main);
+      font-weight: 650;
+      letter-spacing: .01em;
+    }
+
+    /* Mobile menu */
+    .menu-btn{
+      display:none;
+      border:1px solid rgba(89,61,37,.18);
+      background: rgba(255,255,255,.62);
+      border-radius: 14px;
+      padding: 10px 12px;
+      box-shadow: 0 16px 34px rgba(31,23,17,.08);
+    }
+    .menu-btn svg{ width:18px; height:18px; }
+
+    .mobile-drawer{
+      display:none;
+      position:fixed;
+      inset: 64px 4vw auto 4vw;
+      z-index:60;
+      border-radius: 20px;
+      background: rgba(255,255,255,.85);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(89,61,37,.14);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      transform-origin: top right;
+    }
+    .mobile-drawer a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 14px;
+      font-size: 14px;
+      color: rgba(31,23,17,.86);
+      transition: background .2s ease, transform .2s ease;
+    }
+    .mobile-drawer a:hover{
+      background: rgba(89,61,37,.10);
+      transform: translateX(2px);
+      color: var(--main);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 46px 0 12px 0;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items:stretch;
+    }
+
+    .hero-card{
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,.74), rgba(255,255,255,.55));
+      border: 1px solid rgba(89,61,37,.14);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      inset:-80px -120px auto auto;
+      width: 260px; height:260px;
+      background: radial-gradient(circle at 30% 30%, rgba(89,61,37,.18), transparent 62%);
+      filter: blur(2px);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+
+    .hero-title{
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+    }
+    .hero-title h1{
+      color: var(--ink);
+    }
+    .hero-title h1 em{
+      font-style: normal;
+      color: var(--main);
+      position:relative;
+    }
+    .hero-title h1 em::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom: 6px;
+      height: 10px;
+      background: rgba(89,61,37,.12);
+      z-index:-1;
+      border-radius: 999px;
+      transform: rotate(-1.5deg);
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(89,61,37,.18);
+      background: rgba(255,255,255,.70);
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+      font-size: 14px;
+      font-weight: 650;
+      letter-spacing:.01em;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 20px 46px rgba(31,23,17,.10);
+      border-color: rgba(89,61,37,.28);
+    }
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(89,61,37,.98), rgba(89,61,37,.90));
+      color: var(--white);
+      border-color: rgba(89,61,37,.45);
+      box-shadow: 0 20px 55px rgba(89,61,37,.22);
+    }
+    .btn.primary:hover{
+      box-shadow: 0 30px 80px rgba(89,61,37,.24);
+    }
+    .btn svg{ width:18px; height:18px; }
+
+    .hero-badges{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin-top: 18px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(251,247,242,.75);
+      border: 1px solid rgba(89,61,37,.12);
+      box-shadow: 0 16px 34px rgba(31,23,17,.06);
+      font-size: 12px;
+      color: rgba(31,23,17,.78);
+    }
+    .badge i{
+      width:10px; height:10px;
+      border-radius:999px;
+      background: rgba(113,87,67,.95);
+      box-shadow: 0 0 0 4px rgba(113,87,67,.10);
+    }
+
+    .hero-media{
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(89,61,37,.14);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      background: rgba(255,255,255,.55);
+      position:relative;
+      min-height: 420px;
+    }
+    .hero-media .stack{
+      position:absolute; inset: 0;
+      padding: 18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1.2fr .9fr;
+      gap: 12px;
+    }
+    .tile{
+      border-radius: 20px;
+      overflow:hidden;
+      border: 1px solid rgba(89,61,37,.12);
+      background: rgba(255,255,255,.55);
+      position:relative;
+      transform: translateZ(0);
+    }
+    .tile img{
+      width:100%; height:100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform .65s cubic-bezier(.2,.8,.2,1);
+      filter: saturate(1.04) contrast(1.02);
+    }
+    .tile:hover img{ transform: scale(1.08); }
+    .tile.big{ grid-column: 1 / span 2; }
+
+    .tile .label{
+      position:absolute;
+      left: 12px; right: 12px; bottom: 12px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(89,61,37,.12);
+      backdrop-filter: blur(10px);
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .label strong{
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--ink);
+    }
+    .label span{
+      font-size: 12px;
+      color: rgba(113,87,67,.92);
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      white-space:nowrap;
+    }
+
+    /* Divider ribbon */
+    .ribbon{
+      margin-top: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(89,61,37,.10);
+      background: rgba(255,255,255,.58);
+      box-shadow: 0 18px 44px rgba(31,23,17,.06);
+      overflow:hidden;
+    }
+    .marquee{
+      display:flex;
+      gap: 18px;
+      padding: 12px 0;
+      width:max-content;
+      animation: scroll 22s linear infinite;
+    }
+    .marquee span{
+      font-size: 12px;
+      color: rgba(31,23,17,.72);
+      letter-spacing:.18em;
+      text-transform: uppercase;
+      padding: 0 18px;
+      position:relative;
+      white-space:nowrap;
+    }
+    .marquee span::after{
+      content:"";
+      position:absolute;
+      right:-9px; top:50%;
+      width:4px; height:4px;
+      border-radius:999px;
+      background: rgba(89,61,37,.35);
+      transform: translateY(-50%);
+    }
+    @keyframes scroll{
+      from{ transform: translateX(0); }
+      to{ transform: translateX(-50%); }
+    }
+
+    /* Cards */
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .info-card{
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.52));
+      border: 1px solid rgba(89,61,37,.12);
+      box-shadow: var(--shadow-soft);
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .info-card:hover{
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    .info-card .icon{
+      width:38px; height:38px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(89,61,37,.14);
+      background: rgba(251,247,242,.75);
+      margin-bottom: 12px;
+    }
+    .info-card .icon svg{ width:18px; height:18px; color: var(--main); }
+    .info-card h3{
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    /* Product carousel */
+    .carousel-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .controls{
+      display:flex;
+      gap: 10px;
+    }
+    .icon-btn{
+      width:44px; height:44px;
+      border-radius: 16px;
+      border: 1px solid rgba(89,61,37,.16);
+      background: rgba(255,255,255,.70);
+      box-shadow: 0 16px 34px rgba(31,23,17,.06);
+      display:grid; place-items:center;
+      cursor:pointer;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .icon-btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 22px 50px rgba(31,23,17,.10);
+      border-color: rgba(89,61,37,.28);
+    }
+    .icon-btn svg{ width:18px; height:18px; color: var(--main); }
+
+    .scroller{
+      display:flex;
+      gap: 14px;
+      overflow:auto;
+      padding: 6px 2px 18px 2px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .scroller::-webkit-scrollbar{ height: 10px; }
+    .scroller::-webkit-scrollbar-thumb{
+      background: rgba(89,61,37,.14);
+      border-radius: 999px;
+    }
+    .product{
+      min-width: 260px;
+      max-width: 320px;
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(89,61,37,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.52));
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+      position:relative;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .product:hover{
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .product .img{
+      height: 220px;
+      background: rgba(251,247,242,.75);
+      overflow:hidden;
+      position:relative;
+    }
+    .product .img img{
+      width:100%; height:100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      transition: transform .65s cubic-bezier(.2,.8,.2,1);
+    }
+    .product:hover .img img{ transform: scale(1.10); }
+
+    .product .body{
+      padding: 16px 16px 18px 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .product .top{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .pill{
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(113,87,67,.92);
+      border: 1px solid rgba(89,61,37,.14);
+      background: rgba(251,247,242,.75);
+      padding: 7px 10px;
+      border-radius: 999px;
+      white-space:nowrap;
+    }
+
+    .product h3{ color: var(--ink); }
+    .product p{ font-size: 14px; }
+
+    .product .buy{
+      margin-top: 6px;
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .link{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color: var(--main);
+      font-weight: 650;
+      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(89,61,37,.18);
+      background: rgba(255,255,255,.70);
+      transition: transform .25s ease, box-shadow .25s ease;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .link:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 20px 46px rgba(31,23,17,.10);
+    }
+    .link svg{ width:18px; height:18px; }
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .gallery .left{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 210px;
+      gap: 14px;
+    }
+    .gcard{
+      border-radius: var(--radius-xl);
+      overflow:hidden;
+      border: 1px solid rgba(89,61,37,.12);
+      background: rgba(255,255,255,.55);
+      box-shadow: var(--shadow-soft);
+      position:relative;
+    }
+    .gcard img{
+      width:100%; height:100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      transition: transform .7s cubic-bezier(.2,.8,.2,1);
+      filter: saturate(1.04) contrast(1.02);
+    }
+    .gcard:hover img{ transform: scale(1.10); }
+    .gcard.big{ grid-column: 1 / span 2; }
+
+    .gallery .right{
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(89,61,37,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.52));
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap: 14px;
+    }
+    .quote{
+      font-family: var(--serif);
+      font-size: clamp(20px, 2.4vw, 28px);
+      line-height: 1.15;
+      color: rgba(31,23,17,.88);
+    }
+    .quote small{
+      display:block;
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+      color: rgba(113,87,67,.92);
+      margin-top: 12px;
+    }
+
+    /* Location */
+    .location{
+      display:grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 14px;
+      margin-top: 18px;
+      align-items:stretch;
+    }
+    .loc-card{
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(89,61,37,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.52));
+      box-shadow: var(--shadow-soft);
+      padding: 18px;
+    }
+    .loc-card .row{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      margin-top: 12px;
+    }
+    .loc-card .pin{
+      width:38px; height:38px;
+      border-radius: 14px;
+      border: 1px solid rgba(89,61,37,.14);
+      background: rgba(251,247,242,.75);
+      display:grid; place-items:center;
+      flex: 0 0 auto;
+    }
+    .loc-card .pin svg{ width:18px; height:18px; color: var(--main); }
+    .loc-card strong{
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--ink);
+      display:block;
+      margin-bottom: 6px;
+    }
+    .map{
+      border-radius: var(--radius-xl);
+      overflow:hidden;
+      border: 1px solid rgba(89,61,37,.12);
+      box-shadow: var(--shadow);
+      min-height: 340px;
+      background: rgba(255,255,255,.55);
+      position:relative;
+    }
+    .map iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      filter: saturate(1.03) contrast(1.02);
+    }
+
+    /* Footer */
+    footer{
+      padding: 28px 0 46px 0;
+      color: rgba(31,23,17,.72);
+      position:relative;
+      z-index:2;
+    }
+    .footer-card{
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(89,61,37,.12);
+      background: rgba(255,255,255,.62);
+      box-shadow: var(--shadow-soft);
+      padding: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .fine{
+      font-size: 12px;
+      letter-spacing:.06em;
+    }
+    .social{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+    .social a{
+      width:44px; height:44px;
+      border-radius: 16px;
+      border: 1px solid rgba(89,61,37,.16);
+      background: rgba(255,255,255,.70);
+      display:grid; place-items:center;
+      box-shadow: 0 16px 34px rgba(31,23,17,.06);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .social a:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 22px 50px rgba(31,23,17,.10);
+    }
+    .social svg{ width:18px; height:18px; color: var(--main); }
+
+    /* Reveal animation */
+    .reveal{
+      opacity:0;
+      transform: translateY(14px);
+      filter: blur(8px);
+      transition: opacity .8s ease, transform .8s ease, filter .8s ease;
+    }
+    .reveal.in{
+      opacity:1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    /* Floating accent blobs */
+    .blob{
+      position:absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(89,61,37,.14), transparent 60%);
+      filter: blur(10px);
+      opacity:.65;
+      z-index:1;
+      animation: floaty 10s ease-in-out infinite;
+    }
+    .blob.b1{ top: 860px; left: -240px; }
+    .blob.b2{ top: 1720px; right: -260px; animation-duration: 12s; }
+    @keyframes floaty{
+      0%,100%{ transform: translate(0,0); }
+      50%{ transform: translate(16px,-18px); }
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero-media{ min-height: 390px; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .gallery{ grid-template-columns: 1fr; }
+      .gallery .left{ grid-auto-rows: 190px; }
+      .location{ grid-template-columns: 1fr; }
+      .map{ min-height: 320px; }
+    }
+
+    @media (max-width: 780px){
+      .nav-links{ display:none; }
+      .menu-btn{ display:inline-flex; align-items:center; justify-content:center; }
+      .brand{ min-width: unset; }
+      .hero{ padding-top: 30px; }
+      .hero-card{ padding: 18px; }
+      .hero-media .stack{ padding: 14px; }
+      .tile .label strong{ font-size: 16px; }
+      .section{ padding: 58px 0; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .marquee{ animation:none; }
+      .tile img, .gcard img{ transition:none; }
+      .btn, .cta, .product, .info-card, .icon-btn, .link, .social a{ transition:none; }
+      .reveal{ opacity:1; transform:none; filter:none; }
+      .blob{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Bean Bloom Chocolate home">
+        <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/Logo.jpg" alt="Bean Bloom Chocolate logo" />
+        <div class="name">
+          <strong>Bean Bloom</strong>
+          <span>Chocolate</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#story">Story</a>
+        <a href="#bestsellers">Bestsellers</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#visit">Visit</a>
+        <a class="cta" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Order Online</span>
+        </a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-drawer" id="drawer" aria-label="Mobile menu">
+      <a href="#story" class="drawerLink">Story</a>
+      <a href="#bestsellers" class="drawerLink">Bestsellers</a>
+      <a href="#gallery" class="drawerLink">Gallery</a>
+      <a href="#visit" class="drawerLink">Visit</a>
+      <a href="https://beanbloomchocolate.com/" target="_blank" rel="noopener" class="drawerLink">Order Online</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="wrap hero-grid">
+      <section class="hero-card reveal">
+        <p class="kicker">ARTISAN CHOCOLATE • MIAMISBURG</p>
+
+        <div class="hero-title">
+          <h1>
+            Where <em>cocoa</em> becomes a moment worth keeping
+          </h1>
+          <p>
+            Bean Bloom Chocolate brings a rich, elegant collection of chocolate bars and dessert favorites.
+            Visit us in Miamisburg or order online for a luxury bite that feels special every time.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6l-2 0"/><path d="M9 22a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/><path d="M18 22a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+              </svg>
+              Shop Online
+            </a>
+
+            <a class="btn" href="#bestsellers">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 5v14"/><path d="M19 12H5"/>
+              </svg>
+              Explore Bestsellers
+            </a>
+
+            <a class="btn" href="#visit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11z"/>
+                <path d="M12 10.5a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4z"/>
+              </svg>
+              Visit Store
+            </a>
+          </div>
+
+          <div class="hero-badges">
+            <span class="badge"><i aria-hidden="true"></i> Fancy flavors, clean finish</span>
+            <span class="badge"><i aria-hidden="true"></i> Made to gift, made to keep</span>
+            <span class="badge"><i aria-hidden="true"></i> Mobile friendly ordering</span>
+          </div>
+        </div>
+      </section>
+
+      <aside class="hero-media reveal" aria-label="Featured chocolate images">
+        <div class="stack">
+          <div class="tile big">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/18.png" alt="Bean Bloom Chocolate selection" loading="lazy">
+            <div class="label">
+              <strong>Signature Collection</strong>
+              <span>Featured</span>
+            </div>
+          </div>
+          <div class="tile">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/12-2.png" alt="Dubai chocolate milk bar" loading="lazy">
+            <div class="label">
+              <strong>Dubai</strong>
+              <span>Milk</span>
+            </div>
+          </div>
+          <div class="tile">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/13-2.png" alt="Dubai chocolate white bar" loading="lazy">
+            <div class="label">
+              <strong>Dubai</strong>
+              <span>White</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="wrap ribbon reveal" aria-hidden="true">
+      <div class="marquee" id="marquee">
+        <span>Bean Bloom Chocolate</span>
+        <span>Luxury Bars</span>
+        <span>Gift Ready</span>
+        <span>Dubai Collection</span>
+        <span>Elegant Desserts</span>
+        <span>Order Online</span>
+        <span>Visit Miamisburg</span>
+
+        <span>Bean Bloom Chocolate</span>
+        <span>Luxury Bars</span>
+        <span>Gift Ready</span>
+        <span>Dubai Collection</span>
+        <span>Elegant Desserts</span>
+        <span>Order Online</span>
+        <span>Visit Miamisburg</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- STORY -->
+  <section id="story" class="section">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="kicker">OUR STORY</p>
+        <h2>Elegant chocolate, crafted to feel like a treat and a gift</h2>
+        <p style="margin-top:12px; max-width: 70ch;">
+          Bean Bloom is all about rich flavor, refined textures, and a premium look you want to show off.
+          From bold bars to dessert favorites, every piece is designed to be interactive for your senses.
+          A smooth snap, a clean melt, and a finish that stays with you.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <article class="info-card reveal">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2s3 3 3 7-3 7-3 7-3-3-3-7 3-7 3-7z"/>
+              <path d="M5 22c2-3 5-5 7-5s5 2 7 5"/>
+            </svg>
+          </div>
+          <h3>Luxury Taste</h3>
+          <p>
+            Deep cocoa notes with smooth balance. Rich, fancy, and clean on the finish.
+          </p>
+        </article>
+
+        <article class="info-card reveal">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 7l-8-4-8 4 8 4 8-4z"/>
+              <path d="M4 7v10l8 4 8-4V7"/>
+            </svg>
+          </div>
+          <h3>Gift Ready</h3>
+          <p>
+            A premium look built for gifting. The kind of chocolate you feel proud to bring.
+          </p>
+        </article>
+
+        <article class="info-card reveal">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v18"/><path d="M3 12h18"/><path d="M19 5l-14 14"/><path d="M5 5l14 14"/>
+            </svg>
+          </div>
+          <h3>Made for Mobile</h3>
+          <p>
+            Quick browsing, smooth scroll, easy ordering. Perfect for customers on phones.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BESTSELLERS -->
+  <section id="bestsellers" class="section compact">
+    <div class="wrap">
+      <div class="carousel-head reveal">
+        <div>
+          <p class="kicker">BESTSELLERS</p>
+          <h2>Signature bars and dessert favorites</h2>
+          <p style="margin-top:10px; max-width: 70ch;">
+            Tap a card to browse. Use the arrows or swipe on mobile.
+          </p>
+        </div>
+
+        <div class="controls" aria-label="Carousel controls">
+          <button class="icon-btn" id="prevBtn" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          <button class="icon-btn" id="nextBtn" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="scroller reveal" id="scroller" tabindex="0" aria-label="Bestsellers carousel">
+        <!-- Strawberry -->
+        <article class="product">
+          <div class="img">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/2-2.png" alt="Strawberry chocolate bar" loading="lazy">
+          </div>
+          <div class="body">
+            <div class="top">
+              <h3>Strawberry Bar</h3>
+              <span class="pill">Fruity</span>
+            </div>
+            <p>Bright strawberry notes with a rich chocolate base for a clean, elegant finish.</p>
+            <div class="buy">
+              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+                Order
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+                </svg>
+              </a>
+              <span class="pill" aria-label="Category">Chocolate Bar</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Almond -->
+        <article class="product">
+          <div class="img">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/3-2.png" alt="Almond chocolate bar" loading="lazy">
+          </div>
+          <div class="body">
+            <div class="top">
+              <h3>Almond Bar</h3>
+              <span class="pill">Classic</span>
+            </div>
+            <p>Crunchy almond bite with a smooth melt. Simple, rich, and premium.</p>
+            <div class="buy">
+              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+                Order
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+                </svg>
+              </a>
+              <span class="pill">Chocolate Bar</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tiramisu -->
+        <article class="product">
+          <div class="img">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/5-2.png" alt="Tiramisu chocolate" loading="lazy">
+          </div>
+          <div class="body">
+            <div class="top">
+              <h3>Tiramisu</h3>
+              <span class="pill">Dessert</span>
+            </div>
+            <p>Inspired by the classic. Creamy, coffee-forward, and beautifully balanced.</p>
+            <div class="buy">
+              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+                Order
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+                </svg>
+              </a>
+              <span class="pill">Dessert</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Royal Pistachio Stack (no specific image provided, using a generic) -->
+        <article class="product">
+          <div class="img">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/6-2.png" alt="Royal Pistachio Stack" loading="lazy">
+          </div>
+          <div class="body">
+            <div class="top">
+              <h3>Royal Pistachio Stack</h3>
+              <span class="pill">Premium</span>
+            </div>
+            <p>Elegant pistachio richness layered for a luxury bite that feels special.</p>
+            <div class="buy">
+              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+                Order
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+                </svg>
+              </a>
+              <span class="pill">Special</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dubai Milk -->
+        <article class="product">
+          <div class="img">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/12-2.png" alt="Dubai chocolate milk bar" loading="lazy">
+          </div>
+          <div class="body">
+            <div class="top">
+              <h3>Dubai Chocolate</h3>
+              <span class="pill">Milk</span>
+            </div>
+            <p>Silky milk chocolate with a rich, bold look. Built to gift, built to crave.</p>
+            <div class="buy">
+              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+                Order
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+                </svg>
+              </a>
+              <span class="pill">Bar</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dubai White -->
+        <article class="product">
+          <div class="img">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/13-2.png" alt="Dubai chocolate white bar" loading="lazy">
+          </div>
+          <div class="body">
+            <div class="top">
+              <h3>Dubai Chocolate</h3>
+              <span class="pill">White</span>
+            </div>
+            <p>Bright, creamy, and elegant. A clean sweetness with a premium finish.</p>
+            <div class="buy">
+              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+                Order
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+                </svg>
+              </a>
+              <span class="pill">Bar</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dubai Dark -->
+        <article class="product">
+          <div class="img">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/14-2.png" alt="Dubai chocolate dark bar" loading="lazy">
+          </div>
+          <div class="body">
+            <div class="top">
+              <h3>Dubai Chocolate</h3>
+              <span class="pill">Dark</span>
+            </div>
+            <p>Deep cocoa intensity with a smooth snap. Bold, rich, and refined.</p>
+            <div class="buy">
+              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+                Order
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+                </svg>
+              </a>
+              <span class="pill">Bar</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sebastian Cake -->
+        <article class="product">
+          <div class="img">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/7-2.png" alt="Sebastian cake" loading="lazy">
+          </div>
+          <div class="body">
+            <div class="top">
+              <h3>Sebastian Cake</h3>
+              <span class="pill">Cake</span>
+            </div>
+            <p>Soft, rich, and indulgent. A dessert favorite made for the spotlight.</p>
+            <div class="buy">
+              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+                Order
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+                </svg>
+              </a>
+              <span class="pill">Dessert</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="kicker">GALLERY</p>
+        <h2>A look that feels premium before the first bite</h2>
+        <p style="margin-top:12px; max-width: 70ch;">
+          Tap any image. Everything here is built for an elegant, high end vibe on mobile.
+        </p>
+      </div>
+
+      <div class="gallery">
+        <div class="left reveal" aria-label="Photo gallery">
+          <a class="gcard big" href="https://goyaffagrill.com/wp-content/uploads/2026/02/11-2.png" target="_blank" rel="noopener">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/11-2.png" alt="Chocolate display" loading="lazy">
+          </a>
+
+          <a class="gcard" href="https://goyaffagrill.com/wp-content/uploads/2026/02/15-2.png" target="_blank" rel="noopener">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/15-2.png" alt="Dubai chocolate milk bar packaging" loading="lazy">
+          </a>
+
+          <a class="gcard" href="https://goyaffagrill.com/wp-content/uploads/2026/02/16-2.png" target="_blank" rel="noopener">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/16-2.png" alt="Dubai chocolate milk bar closeup" loading="lazy">
+          </a>
+
+          <a class="gcard" href="https://goyaffagrill.com/wp-content/uploads/2026/02/17-2.png" target="_blank" rel="noopener">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/17-2.png" alt="Dubai chocolate white bar closeup" loading="lazy">
+          </a>
+
+          <a class="gcard" href="https://goyaffagrill.com/wp-content/uploads/2026/02/9-2.png" target="_blank" rel="noopener">
+            <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/9-2.png" alt="Chocolate dessert closeup" loading="lazy">
+          </a>
+        </div>
+
+        <aside class="right reveal">
+          <div>
+            <div class="quote">
+              “Chocolate should feel like a small luxury, not just a snack.”
+              <small>Bean Bloom Chocolate</small>
+            </div>
+          </div>
+
+          <div>
+            <p class="kicker">QUICK ORDER</p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+              <a class="btn primary" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">Order Online</a>
+              <a class="btn" href="#visit">Get Directions</a>
+            </div>
+
+            <p style="margin-top:12px;">
+              Looking for the Dubai collection? Try milk, white, or dark and pick your favorite.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit" class="section compact">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="kicker">VISIT</p>
+        <h2>Find us in Miamisburg</h2>
+        <p style="margin-top:12px; max-width: 70ch;">
+          Stop by for a luxury treat. Or order online anytime.
+        </p>
+      </div>
+
+      <div class="location">
+        <div class="loc-card reveal">
+          <h3 style="margin-bottom:10px;">Bean Bloom Chocolate</h3>
+
+          <div class="row">
+            <div class="pin" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11z"/>
+                <path d="M12 10.5a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4z"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Address</strong>
+              <p>21 Alexandersville Rd, Miamisburg</p>
+              <p style="margin-top:10px;">
+                <a class="link" href="https://www.google.com/maps/search/?api=1&query=21%20Alexandersville%20Rd%2C%20Miamisburg" target="_blank" rel="noopener">
+                  Open in Maps
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7h-7"/><path d="M3 10V3h7"/><path d="M3 21h7v-7"/>
+                  </svg>
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="pin" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6l-2 0"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Online Orders</strong>
+              <p>Browse the full menu and order online.</p>
+              <p style="margin-top:10px;">
+                <a class="btn primary" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">Order Now</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="map reveal" aria-label="Map">
+          <iframe
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=21%20Alexandersville%20Rd%2C%20Miamisburg&output=embed"
+            title="Map to Bean Bloom Chocolate">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-card reveal">
+        <div class="fine">
+          <strong style="font-family:var(--serif); color: var(--main); font-size: 16px;">Bean Bloom Chocolate</strong><br>
+          <span>21 Alexandersville Rd, Miamisburg</span>
+        </div>
+
+        <div class="social" aria-label="Social links">
+          <!-- Replace # with your real social links -->
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2.5" y="2.5" width="19" height="19" rx="5"/>
+              <path d="M16 11.9a4 4 0 1 1-7.9 1.2A4 4 0 0 1 16 11.9z"/>
+              <path d="M17.5 6.5h.01"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="https://beanbloomchocolate.com/" target="_blank" rel="noopener" aria-label="Website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20"/>
+              <path d="M12 2a15 15 0 0 1 0 20"/>
+              <path d="M12 2a15 15 0 0 0 0 20"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <p class="fine" style="margin-top:12px; color: rgba(31,23,17,.55);">
+        © <span id="year"></span> Bean Bloom Chocolate. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile drawer
+    const menuBtn = document.getElementById("menuBtn");
+    const drawer = document.getElementById("drawer");
+    const drawerLinks = document.querySelectorAll(".drawerLink");
+
+    function closeDrawer(){
+      drawer.style.display = "none";
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
+
+    menuBtn?.addEventListener("click", () => {
+      const open = menuBtn.getAttribute("aria-expanded") === "true";
+      if(open){
+        closeDrawer();
+      } else {
+        drawer.style.display = "block";
+        drawer.animate(
+          [{ transform: "scale(.98)", opacity: 0 }, { transform: "scale(1)", opacity: 1 }],
+          { duration: 160, easing: "cubic-bezier(.2,.8,.2,1)" }
+        );
+        menuBtn.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    drawerLinks.forEach(a => a.addEventListener("click", closeDrawer));
+    document.addEventListener("click", (e) => {
+      if(!drawer.contains(e.target) && !menuBtn.contains(e.target)) closeDrawer();
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => io.observe(el));
+
+    // Carousel controls
+    const scroller = document.getElementById("scroller");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function scrollByCard(dir){
+      if(!scroller) return;
+      const card = scroller.querySelector(".product");
+      const amount = (card?.getBoundingClientRect().width || 280) + 14;
+      scroller.scrollBy({ left: dir * amount, behavior: "smooth" });
+    }
+    prevBtn?.addEventListener("click", () => scrollByCard(-1));
+    nextBtn?.addEventListener("click", () => scrollByCard(1));
+
+    // Keyboard support
+    scroller?.addEventListener("keydown", (e) => {
+      if(e.key === "ArrowRight") scrollByCard(1);
+      if(e.key === "ArrowLeft") scrollByCard(-1);
+    });
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Gentle parallax for blobs (subtle)
+    const blobs = document.querySelectorAll(".blob");
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY || 0;
+      blobs.forEach((b, i) => {
+        const amt = (i ? 0.018 : 0.012) * y;
+        b.style.transform = `translateY(${amt}px)`;
+      });
+    }, { passive: true });
+  </script>
+</body>
+</html>
