@@ -7,7 +7,6 @@
   <title>Bean Bloom Chocolate | Artisan Chocolate in Miamisburg</title>
   <meta name="description" content="Bean Bloom Chocolate. Rich, elegant artisan chocolate bars and desserts. Visit us at 21 Alexandersville Rd, Miamisburg, or order online." />
 
-  <!-- Fonts (elegant + readable) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,15 +17,15 @@
       --second:#715743;
       --white:#ffffff;
 
-      --bg:#fbf7f2; /* almost white */
+      --bg:#ffffff;
       --ink:#1f1711;
       --muted: rgba(31,23,17,.70);
 
-      --card: rgba(255,255,255,.72);
+      --card: #ffffff;
       --stroke: rgba(89,61,37,.14);
 
-      --shadow: 0 18px 55px rgba(31,23,17,.12);
-      --shadow-soft: 0 14px 36px rgba(31,23,17,.10);
+      --shadow: 0 18px 55px rgba(31,23,17,.10);
+      --shadow-soft: 0 14px 36px rgba(31,23,17,.08);
 
       --radius-xl: 26px;
       --radius-lg: 18px;
@@ -44,12 +43,9 @@
       margin:0;
       font-family: var(--sans);
       color: var(--ink);
-      background:
-        radial-gradient(1200px 900px at 10% 0%, rgba(89,61,37,.10), transparent 55%),
-        radial-gradient(900px 700px at 95% 12%, rgba(113,87,67,.12), transparent 55%),
-        radial-gradient(900px 700px at 35% 100%, rgba(89,61,37,.08), transparent 60%),
-        var(--bg);
+      background: #ffffff;
       overflow-x:hidden;
+      padding-bottom: 92px;
     }
 
     a{ color:inherit; text-decoration:none; }
@@ -57,20 +53,13 @@
     button{ font-family:inherit; }
     ::selection{ background: rgba(89,61,37,.16); }
 
-    /* Subtle grain overlay */
-    .grain{
-      pointer-events:none;
-      position:fixed; inset:0;
-      opacity:.06;
-      mix-blend-mode:multiply;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-      background-size:240px 240px;
-      z-index:1;
+    .grain,
+    .blob{
+      display:none;
     }
 
-    /* Layout */
     .wrap{ width:min(var(--container), 92vw); margin:0 auto; }
-    .section{ padding: 70px 0; position:relative; z-index:2; }
+    .section{ padding: 70px 0; position:relative; z-index:2; background:#ffffff; }
     .section.compact{ padding: 52px 0; }
 
     .kicker{
@@ -105,12 +94,11 @@
       font-size: 15px;
     }
 
-    /* Top nav */
     .nav{
       position:sticky; top:0;
       z-index:50;
       backdrop-filter: blur(14px);
-      background: rgba(251,247,242,.62);
+      background: rgba(255,255,255,.94);
       border-bottom:1px solid rgba(89,61,37,.10);
     }
     .nav-inner{
@@ -178,7 +166,7 @@
       padding: 10px 14px;
       border-radius: 999px;
       border: 1px solid rgba(89,61,37,.18);
-      background: rgba(255,255,255,.62);
+      background: #ffffff;
       box-shadow: 0 16px 34px rgba(31,23,17,.08);
       transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
       white-space:nowrap;
@@ -201,11 +189,10 @@
       letter-spacing: .01em;
     }
 
-    /* Mobile menu */
     .menu-btn{
       display:none;
       border:1px solid rgba(89,61,37,.18);
-      background: rgba(255,255,255,.62);
+      background: #ffffff;
       border-radius: 14px;
       padding: 10px 12px;
       box-shadow: 0 16px 34px rgba(31,23,17,.08);
@@ -218,7 +205,7 @@
       inset: 64px 4vw auto 4vw;
       z-index:60;
       border-radius: 20px;
-      background: rgba(255,255,255,.85);
+      background: #ffffff;
       backdrop-filter: blur(14px);
       border: 1px solid rgba(89,61,37,.14);
       box-shadow: var(--shadow);
@@ -239,9 +226,9 @@
       color: var(--main);
     }
 
-    /* Hero */
     .hero{
       padding: 46px 0 12px 0;
+      background:#ffffff;
     }
     .hero-grid{
       display:grid;
@@ -252,7 +239,7 @@
 
     .hero-card{
       border-radius: var(--radius-xl);
-      background: linear-gradient(180deg, rgba(255,255,255,.74), rgba(255,255,255,.55));
+      background: #ffffff;
       border: 1px solid rgba(89,61,37,.14);
       box-shadow: var(--shadow);
       padding: 24px;
@@ -264,7 +251,7 @@
       position:absolute;
       inset:-80px -120px auto auto;
       width: 260px; height:260px;
-      background: radial-gradient(circle at 30% 30%, rgba(89,61,37,.18), transparent 62%);
+      background: radial-gradient(circle at 30% 30%, rgba(89,61,37,.08), transparent 62%);
       filter: blur(2px);
       transform: rotate(18deg);
       pointer-events:none;
@@ -308,7 +295,7 @@
       padding: 12px 14px;
       border-radius: 999px;
       border: 1px solid rgba(89,61,37,.18);
-      background: rgba(255,255,255,.70);
+      background: #ffffff;
       transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
       font-size: 14px;
       font-weight: 650;
@@ -344,7 +331,7 @@
       gap:8px;
       padding: 10px 12px;
       border-radius: 999px;
-      background: rgba(251,247,242,.75);
+      background: #ffffff;
       border: 1px solid rgba(89,61,37,.12);
       box-shadow: 0 16px 34px rgba(31,23,17,.06);
       font-size: 12px;
@@ -362,7 +349,7 @@
       border: 1px solid rgba(89,61,37,.14);
       box-shadow: var(--shadow);
       overflow:hidden;
-      background: rgba(255,255,255,.55);
+      background: #ffffff;
       position:relative;
       min-height: 420px;
     }
@@ -378,7 +365,7 @@
       border-radius: 20px;
       overflow:hidden;
       border: 1px solid rgba(89,61,37,.12);
-      background: rgba(255,255,255,.55);
+      background: #ffffff;
       position:relative;
       transform: translateZ(0);
     }
@@ -397,7 +384,7 @@
       left: 12px; right: 12px; bottom: 12px;
       padding: 10px 12px;
       border-radius: 16px;
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.88);
       border: 1px solid rgba(89,61,37,.12);
       backdrop-filter: blur(10px);
       display:flex;
@@ -418,12 +405,11 @@
       white-space:nowrap;
     }
 
-    /* Divider ribbon */
     .ribbon{
       margin-top: 18px;
       border-radius: 999px;
       border: 1px solid rgba(89,61,37,.10);
-      background: rgba(255,255,255,.58);
+      background: #ffffff;
       box-shadow: 0 18px 44px rgba(31,23,17,.06);
       overflow:hidden;
     }
@@ -457,7 +443,6 @@
       to{ transform: translateX(-50%); }
     }
 
-    /* Cards */
     .grid-3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -466,7 +451,7 @@
     }
     .info-card{
       border-radius: var(--radius-lg);
-      background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.52));
+      background: #ffffff;
       border: 1px solid rgba(89,61,37,.12);
       box-shadow: var(--shadow-soft);
       padding: 18px;
@@ -483,7 +468,7 @@
       border-radius: 14px;
       display:grid; place-items:center;
       border: 1px solid rgba(89,61,37,.14);
-      background: rgba(251,247,242,.75);
+      background: #ffffff;
       margin-bottom: 12px;
     }
     .info-card .icon svg{ width:18px; height:18px; color: var(--main); }
@@ -492,7 +477,6 @@
       color: var(--ink);
     }
 
-    /* Product carousel */
     .carousel-head{
       display:flex;
       align-items:flex-end;
@@ -508,7 +492,7 @@
       width:44px; height:44px;
       border-radius: 16px;
       border: 1px solid rgba(89,61,37,.16);
-      background: rgba(255,255,255,.70);
+      background: #ffffff;
       box-shadow: 0 16px 34px rgba(31,23,17,.06);
       display:grid; place-items:center;
       cursor:pointer;
@@ -541,7 +525,7 @@
       scroll-snap-align: start;
       border-radius: var(--radius-xl);
       border: 1px solid rgba(89,61,37,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.52));
+      background: #ffffff;
       box-shadow: var(--shadow-soft);
       overflow:hidden;
       position:relative;
@@ -553,7 +537,7 @@
     }
     .product .img{
       height: 220px;
-      background: rgba(251,247,242,.75);
+      background: #ffffff;
       overflow:hidden;
       position:relative;
     }
@@ -583,7 +567,7 @@
       text-transform: uppercase;
       color: rgba(113,87,67,.92);
       border: 1px solid rgba(89,61,37,.14);
-      background: rgba(251,247,242,.75);
+      background: #ffffff;
       padding: 7px 10px;
       border-radius: 999px;
       white-space:nowrap;
@@ -609,7 +593,7 @@
       padding: 10px 12px;
       border-radius: 999px;
       border: 1px solid rgba(89,61,37,.18);
-      background: rgba(255,255,255,.70);
+      background: #ffffff;
       transition: transform .25s ease, box-shadow .25s ease;
       cursor:pointer;
       user-select:none;
@@ -621,7 +605,6 @@
     }
     .link svg{ width:18px; height:18px; }
 
-    /* Gallery */
     .gallery{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
@@ -638,7 +621,7 @@
       border-radius: var(--radius-xl);
       overflow:hidden;
       border: 1px solid rgba(89,61,37,.12);
-      background: rgba(255,255,255,.55);
+      background: #ffffff;
       box-shadow: var(--shadow-soft);
       position:relative;
     }
@@ -655,7 +638,7 @@
     .gallery .right{
       border-radius: var(--radius-xl);
       border: 1px solid rgba(89,61,37,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.52));
+      background: #ffffff;
       box-shadow: var(--shadow);
       padding: 18px;
       display:flex;
@@ -679,7 +662,6 @@
       margin-top: 12px;
     }
 
-    /* Location */
     .location{
       display:grid;
       grid-template-columns: .9fr 1.1fr;
@@ -690,7 +672,7 @@
     .loc-card{
       border-radius: var(--radius-xl);
       border: 1px solid rgba(89,61,37,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.52));
+      background: #ffffff;
       box-shadow: var(--shadow-soft);
       padding: 18px;
     }
@@ -704,7 +686,7 @@
       width:38px; height:38px;
       border-radius: 14px;
       border: 1px solid rgba(89,61,37,.14);
-      background: rgba(251,247,242,.75);
+      background: #ffffff;
       display:grid; place-items:center;
       flex: 0 0 auto;
     }
@@ -722,7 +704,7 @@
       border: 1px solid rgba(89,61,37,.12);
       box-shadow: var(--shadow);
       min-height: 340px;
-      background: rgba(255,255,255,.55);
+      background: #ffffff;
       position:relative;
     }
     .map iframe{
@@ -732,17 +714,17 @@
       filter: saturate(1.03) contrast(1.02);
     }
 
-    /* Footer */
     footer{
       padding: 28px 0 46px 0;
       color: rgba(31,23,17,.72);
       position:relative;
       z-index:2;
+      background:#ffffff;
     }
     .footer-card{
       border-radius: var(--radius-xl);
       border: 1px solid rgba(89,61,37,.12);
-      background: rgba(255,255,255,.62);
+      background: #ffffff;
       box-shadow: var(--shadow-soft);
       padding: 18px;
       display:flex;
@@ -764,7 +746,7 @@
       width:44px; height:44px;
       border-radius: 16px;
       border: 1px solid rgba(89,61,37,.16);
-      background: rgba(255,255,255,.70);
+      background: #ffffff;
       display:grid; place-items:center;
       box-shadow: 0 16px 34px rgba(31,23,17,.06);
       transition: transform .25s ease, box-shadow .25s ease;
@@ -775,7 +757,42 @@
     }
     .social svg{ width:18px; height:18px; color: var(--main); }
 
-    /* Reveal animation */
+    .sticky-order{
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:999;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(255,255,255,.96);
+      border-top: 1px solid rgba(89,61,37,.14);
+      box-shadow: 0 -12px 35px rgba(31,23,17,.12);
+      backdrop-filter: blur(12px);
+    }
+
+    .sticky-order a{
+      width:min(720px, 100%);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      background: linear-gradient(180deg, rgba(89,61,37,.98), rgba(89,61,37,.90));
+      color:#ffffff;
+      border-radius: 999px;
+      padding: 15px 18px;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing:.02em;
+      box-shadow: 0 18px 45px rgba(89,61,37,.25);
+      border: 1px solid rgba(89,61,37,.45);
+    }
+
+    .sticky-order svg{
+      width:19px;
+      height:19px;
+    }
+
     .reveal{
       opacity:0;
       transform: translateY(14px);
@@ -788,26 +805,6 @@
       filter: blur(0);
     }
 
-    /* Floating accent blobs */
-    .blob{
-      position:absolute;
-      width: 520px;
-      height: 520px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, rgba(89,61,37,.14), transparent 60%);
-      filter: blur(10px);
-      opacity:.65;
-      z-index:1;
-      animation: floaty 10s ease-in-out infinite;
-    }
-    .blob.b1{ top: 860px; left: -240px; }
-    .blob.b2{ top: 1720px; right: -260px; animation-duration: 12s; }
-    @keyframes floaty{
-      0%,100%{ transform: translate(0,0); }
-      50%{ transform: translate(16px,-18px); }
-    }
-
-    /* Responsive */
     @media (max-width: 980px){
       .hero-grid{ grid-template-columns: 1fr; }
       .hero-media{ min-height: 390px; }
@@ -827,16 +824,18 @@
       .hero-media .stack{ padding: 14px; }
       .tile .label strong{ font-size: 16px; }
       .section{ padding: 58px 0; }
+      .sticky-order{
+        padding-left: 12px;
+        padding-right: 12px;
+      }
     }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       html{ scroll-behavior:auto; }
       .marquee{ animation:none; }
       .tile img, .gcard img{ transition:none; }
       .btn, .cta, .product, .info-card, .icon-btn, .link, .social a{ transition:none; }
       .reveal{ opacity:1; transform:none; filter:none; }
-      .blob{ display:none; }
     }
   </style>
 </head>
@@ -846,7 +845,6 @@
   <div class="blob b1" aria-hidden="true"></div>
   <div class="blob b2" aria-hidden="true"></div>
 
-  <!-- NAV -->
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="Bean Bloom Chocolate home">
@@ -862,7 +860,7 @@
         <a href="#bestsellers">Bestsellers</a>
         <a href="#gallery">Gallery</a>
         <a href="#visit">Visit</a>
-        <a class="cta" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+        <a class="cta" href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener">
           <span class="dot" aria-hidden="true"></span>
           <span>Order Online</span>
         </a>
@@ -880,11 +878,10 @@
       <a href="#bestsellers" class="drawerLink">Bestsellers</a>
       <a href="#gallery" class="drawerLink">Gallery</a>
       <a href="#visit" class="drawerLink">Visit</a>
-      <a href="https://beanbloomchocolate.com/" target="_blank" rel="noopener" class="drawerLink">Order Online</a>
+      <a href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener" class="drawerLink">Order Online</a>
     </div>
   </header>
 
-  <!-- HERO -->
   <main id="top" class="hero">
     <div class="wrap hero-grid">
       <section class="hero-card reveal">
@@ -900,7 +897,7 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn primary" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+            <a class="btn primary" href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6l-2 0"/><path d="M9 22a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/><path d="M18 22a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
               </svg>
@@ -979,7 +976,6 @@
     </div>
   </main>
 
-  <!-- STORY -->
   <section id="story" class="section">
     <div class="wrap">
       <div class="reveal">
@@ -1034,7 +1030,6 @@
     </div>
   </section>
 
-  <!-- BESTSELLERS -->
   <section id="bestsellers" class="section compact">
     <div class="wrap">
       <div class="carousel-head reveal">
@@ -1061,7 +1056,6 @@
       </div>
 
       <div class="scroller reveal" id="scroller" tabindex="0" aria-label="Bestsellers carousel">
-        <!-- Strawberry -->
         <article class="product">
           <div class="img">
             <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/2-2.png" alt="Strawberry chocolate bar" loading="lazy">
@@ -1073,7 +1067,7 @@
             </div>
             <p>Bright strawberry notes with a rich chocolate base for a clean, elegant finish.</p>
             <div class="buy">
-              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+              <a class="link" href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener">
                 Order
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
@@ -1084,7 +1078,6 @@
           </div>
         </article>
 
-        <!-- Almond -->
         <article class="product">
           <div class="img">
             <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/3-2.png" alt="Almond chocolate bar" loading="lazy">
@@ -1096,7 +1089,7 @@
             </div>
             <p>Crunchy almond bite with a smooth melt. Simple, rich, and premium.</p>
             <div class="buy">
-              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+              <a class="link" href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener">
                 Order
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
@@ -1107,7 +1100,6 @@
           </div>
         </article>
 
-        <!-- Tiramisu -->
         <article class="product">
           <div class="img">
             <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/5-2.png" alt="Tiramisu chocolate" loading="lazy">
@@ -1119,7 +1111,7 @@
             </div>
             <p>Inspired by the classic. Creamy, coffee-forward, and beautifully balanced.</p>
             <div class="buy">
-              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+              <a class="link" href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener">
                 Order
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
@@ -1130,7 +1122,6 @@
           </div>
         </article>
 
-        <!-- Royal Pistachio Stack (no specific image provided, using a generic) -->
         <article class="product">
           <div class="img">
             <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/6-2.png" alt="Royal Pistachio Stack" loading="lazy">
@@ -1142,7 +1133,7 @@
             </div>
             <p>Elegant pistachio richness layered for a luxury bite that feels special.</p>
             <div class="buy">
-              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+              <a class="link" href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener">
                 Order
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
@@ -1153,7 +1144,6 @@
           </div>
         </article>
 
-        <!-- Dubai Milk -->
         <article class="product">
           <div class="img">
             <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/12-2.png" alt="Dubai chocolate milk bar" loading="lazy">
@@ -1165,7 +1155,7 @@
             </div>
             <p>Silky milk chocolate with a rich, bold look. Built to gift, built to crave.</p>
             <div class="buy">
-              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+              <a class="link" href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener">
                 Order
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
@@ -1176,7 +1166,6 @@
           </div>
         </article>
 
-        <!-- Dubai White -->
         <article class="product">
           <div class="img">
             <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/13-2.png" alt="Dubai chocolate white bar" loading="lazy">
@@ -1188,7 +1177,7 @@
             </div>
             <p>Bright, creamy, and elegant. A clean sweetness with a premium finish.</p>
             <div class="buy">
-              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+              <a class="link" href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener">
                 Order
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
@@ -1199,7 +1188,6 @@
           </div>
         </article>
 
-        <!-- Dubai Dark -->
         <article class="product">
           <div class="img">
             <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/14-2.png" alt="Dubai chocolate dark bar" loading="lazy">
@@ -1211,7 +1199,7 @@
             </div>
             <p>Deep cocoa intensity with a smooth snap. Bold, rich, and refined.</p>
             <div class="buy">
-              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+              <a class="link" href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener">
                 Order
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
@@ -1222,7 +1210,6 @@
           </div>
         </article>
 
-        <!-- Sebastian Cake -->
         <article class="product">
           <div class="img">
             <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/7-2.png" alt="Sebastian cake" loading="lazy">
@@ -1234,7 +1221,7 @@
             </div>
             <p>Soft, rich, and indulgent. A dessert favorite made for the spotlight.</p>
             <div class="buy">
-              <a class="link" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">
+              <a class="link" href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener">
                 Order
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
@@ -1248,7 +1235,6 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
   <section id="gallery" class="section">
     <div class="wrap">
       <div class="reveal">
@@ -1293,7 +1279,7 @@
           <div>
             <p class="kicker">QUICK ORDER</p>
             <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-              <a class="btn primary" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">Order Online</a>
+              <a class="btn primary" href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener">Order Online</a>
               <a class="btn" href="#visit">Get Directions</a>
             </div>
 
@@ -1306,7 +1292,6 @@
     </div>
   </section>
 
-  <!-- VISIT -->
   <section id="visit" class="section compact">
     <div class="wrap">
       <div class="reveal">
@@ -1352,7 +1337,7 @@
               <strong>Online Orders</strong>
               <p>Browse the full menu and order online.</p>
               <p style="margin-top:10px;">
-                <a class="btn primary" href="https://beanbloomchocolate.com/" target="_blank" rel="noopener">Order Now</a>
+                <a class="btn primary" href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener">Order Now</a>
               </p>
             </div>
           </div>
@@ -1370,7 +1355,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="wrap">
       <div class="footer-card reveal">
@@ -1380,25 +1364,26 @@
         </div>
 
         <div class="social" aria-label="Social links">
-          <!-- Replace # with your real social links -->
-          <a href="#" aria-label="Instagram">
+          <a href="https://www.instagram.com/beanbloomchocolate" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2.5" y="2.5" width="19" height="19" rx="5"/>
               <path d="M16 11.9a4 4 0 1 1-7.9 1.2A4 4 0 0 1 16 11.9z"/>
               <path d="M17.5 6.5h.01"/>
             </svg>
           </a>
-          <a href="#" aria-label="Facebook">
+
+          <a href="https://www.facebook.com/profile.php?id=61579267049508" target="_blank" rel="noopener" aria-label="Facebook">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
             </svg>
           </a>
-          <a href="https://beanbloomchocolate.com/" target="_blank" rel="noopener" aria-label="Website">
+
+          <a href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener" aria-label="Order Online">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M2 12h20"/>
-              <path d="M12 2a15 15 0 0 1 0 20"/>
-              <path d="M12 2a15 15 0 0 0 0 20"/>
+              <path d="M6 6h15l-1.5 9h-12z"/>
+              <path d="M6 6l-2 0"/>
+              <path d="M9 22a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+              <path d="M18 22a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
             </svg>
           </a>
         </div>
@@ -1410,8 +1395,19 @@
     </div>
   </footer>
 
+  <div class="sticky-order" aria-label="Sticky order button">
+    <a href="https://order.online/business/beanbloom-chocolate-17594023" target="_blank" rel="noopener">
+      Order Online
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 6h15l-1.5 9h-12z"/>
+        <path d="M6 6l-2 0"/>
+        <path d="M9 22a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+        <path d="M18 22a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+      </svg>
+    </a>
+  </div>
+
   <script>
-    // Mobile drawer
     const menuBtn = document.getElementById("menuBtn");
     const drawer = document.getElementById("drawer");
     const drawerLinks = document.querySelectorAll(".drawerLink");
@@ -1440,7 +1436,6 @@
       if(!drawer.contains(e.target) && !menuBtn.contains(e.target)) closeDrawer();
     });
 
-    // Reveal on scroll
     const reveals = document.querySelectorAll(".reveal");
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1453,7 +1448,6 @@
 
     reveals.forEach(el => io.observe(el));
 
-    // Carousel controls
     const scroller = document.getElementById("scroller");
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
@@ -1467,24 +1461,12 @@
     prevBtn?.addEventListener("click", () => scrollByCard(-1));
     nextBtn?.addEventListener("click", () => scrollByCard(1));
 
-    // Keyboard support
     scroller?.addEventListener("keydown", (e) => {
       if(e.key === "ArrowRight") scrollByCard(1);
       if(e.key === "ArrowLeft") scrollByCard(-1);
     });
 
-    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Gentle parallax for blobs (subtle)
-    const blobs = document.querySelectorAll(".blob");
-    window.addEventListener("scroll", () => {
-      const y = window.scrollY || 0;
-      blobs.forEach((b, i) => {
-        const amt = (i ? 0.018 : 0.012) * y;
-        b.style.transform = `translateY(${amt}px)`;
-      });
-    }, { passive: true });
   </script>
 </body>
 </html>
