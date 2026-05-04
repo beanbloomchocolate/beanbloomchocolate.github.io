@@ -4,384 +4,90 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<meta name="theme-color" content="#593d25" />
-<title>Bean Bloom Chocolate</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --main:#593d25;
-  --second:#715743;
-  --white:#fff;
-  --bg:#fff;
-  --ink:#1f1711;
-  --muted:rgba(31,23,17,.70);
-  --radius-xl:26px;
-  --radius-lg:18px;
-  --radius-md:14px;
-  --serif:"Cormorant Garamond",serif;
-  --sans:"Manrope",sans-serif;
-  --container:1120px;
+
+/* ===== FIX START ===== */
+
+/* Prevent ANY horizontal overflow */
+html, body {
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
 }
 
-/* GLOBAL FIXES */
+/* Prevent elements from exceeding width */
 *,
 *::before,
-*::after{
+*::after {
   box-sizing:border-box;
   max-width:100%;
 }
 
-html,body{
-  width:100%;
-  max-width:100%;
-  overflow-x:hidden;
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  font-family:var(--sans);
-  background:#fff;
-  color:var(--ink);
-  padding-bottom:95px;
+/* Fix Safari/iPhone sideways bounce */
+body {
   overscroll-behavior-x:none;
   touch-action:pan-y;
 }
 
-img{
+/* Fix containers that can overflow */
+.wrap,
+.hero-grid,
+.gallery,
+.location,
+.grid-3,
+.section {
   max-width:100%;
-  display:block;
+  overflow-x:hidden;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-.wrap{
-  width:min(var(--container),92vw);
-  margin:auto;
-}
-
-/* NAV */
-.nav{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(0,0,0,.06);
-}
-
-.nav-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:14px 0;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.brand img{
-  width:44px;
-  height:44px;
-  border-radius:14px;
-  object-fit:cover;
-}
-
-.brand strong{
-  font-family:var(--serif);
-  font-size:20px;
-  color:var(--main);
-}
-
-.nav-links{
-  display:flex;
-  gap:14px;
-}
-
-.nav-links a{
-  font-size:14px;
-}
-
-/* HERO */
-.hero{
-  padding:40px 0;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-}
-
-.hero-card,
+/* Fix image blocks */
 .hero-media,
 .product,
+.gcard,
+.tile,
 .info-card,
 .loc-card,
-.footer-card,
-.gcard{
+.footer-card {
   min-width:0;
 }
 
-.hero-card{
-  padding:28px;
-  border-radius:var(--radius-xl);
-  border:1px solid rgba(0,0,0,.06);
-  box-shadow:0 10px 30px rgba(0,0,0,.05);
-}
-
-.hero-card h1{
-  font-family:var(--serif);
-  font-size:clamp(36px,5vw,64px);
-  line-height:1;
-}
-
-.hero-media{
-  border-radius:var(--radius-xl);
-  overflow:hidden;
-}
-
-.hero-media img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-/* PRODUCTS */
-.section{
-  padding:60px 0;
-}
-
-.scroller{
-  display:flex;
-  gap:14px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  padding-bottom:10px;
-}
-
-.scroller::-webkit-scrollbar{
-  display:none;
-}
-
-.product{
-  flex:0 0 280px;
-  scroll-snap-align:start;
-  border-radius:24px;
-  overflow:hidden;
-  border:1px solid rgba(0,0,0,.06);
-  background:#fff;
-  box-shadow:0 8px 24px rgba(0,0,0,.05);
-}
-
-.product img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
-
-.product .body{
-  padding:18px;
-}
-
-/* GALLERY */
-.gallery{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
-
-.gallery .left{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
-.gcard{
-  border-radius:22px;
-  overflow:hidden;
-}
-
-/* LOCATION */
-.location{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
-
-/* FOOTER */
-footer{
-  padding:40px 0;
-}
-
-/* STICKY ORDER BUTTON FIXED */
+/* Fix sticky button overflow */
 .sticky-order{
-  position:fixed;
-  left:14px;
-  right:14px;
-  bottom:16px;
-  z-index:9999;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-
-  width:auto;
-  padding:16px 20px;
-
-  border-radius:999px;
-  background:linear-gradient(180deg,#593d25,#4a321e);
-  color:#fff;
-  font-weight:700;
-  font-size:18px;
-
-  box-shadow:0 14px 35px rgba(89,61,37,.35);
+  left:14px !important;
+  right:14px !important;
+  width:auto !important;
+  transform:none !important;
 }
 
-/* MOBILE */
-@media(max-width:980px){
+/* FIX grid breaking on mobile */
+@media (max-width:980px){
 
   .hero-grid,
   .gallery,
-  .location{
-    grid-template-columns:1fr;
+  .location,
+  .grid-3{
+    grid-template-columns:1fr !important;
   }
 
   .gallery .left{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr !important;
   }
 
-  .nav-links{
-    display:none;
+  .hero-media .stack{
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto !important;
   }
 
-  .hero{
-    padding:24px 0;
-  }
-
-  .hero-card{
-    padding:20px;
-  }
-
-  .product{
-    flex:0 0 82vw;
+  .tile.big,
+  .gcard.big{
+    grid-column:auto !important;
   }
 }
+
+/* ===== FIX END ===== */
+
 </style>
-</head>
-<body>
 
-<header class="nav">
-  <div class="wrap nav-inner">
-    <div class="brand">
-      <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/Logo.jpg">
-      <strong>Bean Bloom Chocolate</strong>
-    </div>
-
-    <nav class="nav-links">
-      <a href="#bestsellers">Bestsellers</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#visit">Visit</a>
-      <a href="https://www.instagram.com/beanbloomchocolate" target="_blank">Instagram</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="wrap hero-grid">
-
-    <div class="hero-card">
-      <h1>Luxury Chocolate Crafted Beautifully</h1>
-      <p>Elegant artisan chocolate bars and desserts made to impress.</p>
-    </div>
-
-    <div class="hero-media">
-      <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/18.png">
-    </div>
-
-  </div>
-</section>
-
-<section class="section" id="bestsellers">
-  <div class="wrap">
-    <h2>Bestsellers</h2>
-
-    <div class="scroller">
-
-      <div class="product">
-        <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/2-2.png">
-        <div class="body">
-          <h3>Strawberry Bar</h3>
-        </div>
-      </div>
-
-      <div class="product">
-        <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/3-2.png">
-        <div class="body">
-          <h3>Almond Bar</h3>
-        </div>
-      </div>
-
-      <div class="product">
-        <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/12-2.png">
-        <div class="body">
-          <h3>Dubai Chocolate</h3>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="section" id="gallery">
-  <div class="wrap gallery">
-    <div class="left">
-      <div class="gcard"><img src="https://goyaffagrill.com/wp-content/uploads/2026/02/11-2.png"></div>
-      <div class="gcard"><img src="https://goyaffagrill.com/wp-content/uploads/2026/02/15-2.png"></div>
-    </div>
-
-    <div class="gcard">
-      <img src="https://goyaffagrill.com/wp-content/uploads/2026/02/16-2.png">
-    </div>
-  </div>
-</section>
-
-<section class="section" id="visit">
-  <div class="wrap location">
-
-    <div class="loc-card">
-      <h3>Visit Us</h3>
-      <p>21 Alexandersville Rd, Miamisburg</p>
-    </div>
-
-    <div class="loc-card">
-      <h3>Follow Us</h3>
-      <p>
-        <a href="https://www.instagram.com/beanbloomchocolate" target="_blank">Instagram</a><br>
-        <a href="https://www.facebook.com/profile.php?id=61579267049508" target="_blank">Facebook</a>
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<a class="sticky-order"
-   href="https://order.online/business/beanbloom-chocolate-17594023"
-   target="_blank">
-   Order Online →
-</a>
-
-</body>
-</html>
+<!-- KEEP EVERYTHING ELSE FROM YOUR ORIGINAL FILE BELOW THIS -->
 ```
